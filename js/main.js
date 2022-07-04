@@ -13,7 +13,7 @@ const COLOR = {
 let board;
 let turn; // 1 or -1; 0 for empty space
 let gameStatus; // null -> game in play; 1/-1 player win; 'T' -> tie
-
+let winner; // 
 
 
 /*----- cached element references -----*/
