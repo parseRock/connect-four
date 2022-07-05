@@ -14,30 +14,30 @@
   
   #markers {
     display: grid;
-    grid-template-columns: repeat(5, 16vmin);
-    gap: 2vmin;
-    margin-top: 2vmin;
+    grid-template-columns: repeat(7, 11vmin);
+    gap: 1vmin;
+    margin-top: 1vmin;
   }
   
   #markers > div {
-    height: 16vmin;
-    border-width: 8vmin;
+    height: 11vmin;
+    border-width: 6vmin;
     border-style: solid;
-    border-color: lightgray transparent transparent;
+    border-color: lightgray, transparent, transparent;
     transform: scale(0.7);
   }
   
   #markers > div:hover {
     transform: scale(0.9);
-    transition: transform 150ms ease-in;
+    transition: transform 105ms ease-in;
     border-top-color: darkgray;
   }
   
   #board {
     display: grid;
-    grid-template-columns: repeat(5, 16vmin);
-    grid-template-rows: repeat(4, 16vmin);
-    gap: 2vmin;
+    grid-template-columns: repeat(7, 110px);
+    grid-template-rows: repeat(6, 110px);
+    gap: 1vmin;
     margin-top: -3vmin;
   }
   
