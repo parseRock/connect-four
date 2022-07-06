@@ -1,31 +1,28 @@
 /*----- constants -----*/
-const COLOR = {
+const COLORS = {
     '0': 'white',
     '1': 'red',
-    '-1': 'yellow'
+    '-1': 'yellow',
 };
 
 
 
 /*----- app's state (variables) -----*/
-// Array of 42 elements...
-// null -> sq avail; 1 or -1 for the players 
+
 let board;
-let turn; // 1 or -1; 0 for empty space
-let winner; // null -> game in play; 1/-1 player win; 'T' -> tie
+let turn; 
+let winner; 
 
 
 
 /*----- cached element references -----*/
-const markerEls = [document.querySelectorAll('#markers > div')] ;
+const markerEls = [...document.querySelectorAll('#markers > div')] ;
 
 
 
 
 /*----- event listeners -----*/
-document.getElementById('markers').addEventListener('click', handleDrop() {
-
-}); 
+document.getElementById('markers').addEventListener('click', handleDrop); 
 
 
 
@@ -36,22 +33,21 @@ init()
 
 function init() {
     board = [
-        [1, 0, 0, 0, 0, 0, 0,], //column 0
-        [0, 0, 0, 0, 0, 0, 0,], //column 1
-        [0, 0, 0, 0, 0, 0, 0,], //column 2
-        [0, 0, 0, 0, 0, 0, 0,], //column 3
-        [0, 0, 0, 0, 0, 0, 0,], //column 4
-        [0, 0, 0, 0, 0, 0, 0,], //column 5
-        [0, 0, 0, 0, 0, 0, 0,], //column 6
+        [1, -1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0], 
+        [0, 0, 0, 0, 0, 0], 
+        [0, 0, 0, 0, 0, 0], 
+        [0, 0, 0, 0, 0, 0], 
+        [0, 0, 0, 0, 0, 0], 
+        [0, 0, 0, 0, 0, 0], 
     ];
     turn = 1;
     render();
-}
+};
 
 
 
 function render() {
-    // Iterate over the column arrays
     board.forEach(function(colArr, colIdx) {
         colArr.forEach(function(cellVal, rowIdx) {
             const cellEl = document.getElementById(`c${colIdx}r${rowIdx}`);
@@ -59,10 +55,10 @@ function render() {
         });
     });
 }
-
-// update all impacted state, then call render
+    
 function handleDrop(evt) {
-    const colIdx = markerEls.indexOf(evt.target)
+    const colIdx = markerEls.indexOf(evt.target);
+    console.log(colIdx)
     if (colIdx === -1) return;
     const colArr = board[colIdx];
     if (!colArr.includes(0)) return;
@@ -71,3 +67,15 @@ function handleDrop(evt) {
     turn *= -1;
     render();
 }
+
+// function checkWin(colIdx, rowIdx) {
+//     const player = board[colIdx][rowIdx];
+//     let count = 1;
+//     let idx = colIdx + 1;
+//     while (idx < board.length && board[idx][rowIdx] === player) {
+//         count++;
+//         idx++;
+//     }
+//     return count >= 2 ? winner = true : null
+    // return checkVertWin(colIdx, player) || checkHorzWin(colIdx, rowIdx, player) .... etc
+//   }
