@@ -31,9 +31,12 @@ document.getElementById('markers').addEventListener('click', handleDrop() {
 
 
 /*----- functions -----*/
+init()
+
+
 function init() {
     board = [
-        [0, 0, 0, 0, 0, 0, 0,], //column 0
+        [1, 0, 0, 0, 0, 0, 0,], //column 0
         [0, 0, 0, 0, 0, 0, 0,], //column 1
         [0, 0, 0, 0, 0, 0, 0,], //column 2
         [0, 0, 0, 0, 0, 0, 0,], //column 3
@@ -45,7 +48,7 @@ function init() {
     render();
 }
 
-init()
+
 
 function render() {
     // Iterate over the column arrays
