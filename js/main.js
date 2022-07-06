@@ -12,8 +12,8 @@ const COLOR = {
 // null -> sq avail; 1 or -1 for the players 
 let board;
 let turn; // 1 or -1; 0 for empty space
-let gameStatus; // null -> game in play; 1/-1 player win; 'T' -> tie
-let winner; // 
+let winner; // null -> game in play; 1/-1 player win; 'T' -> tie
+
 
 
 /*----- cached element references -----*/
@@ -44,6 +44,8 @@ function init() {
     turn = 1;
     render();
 }
+
+init()
 
 function render() {
     // Iterate over the column arrays
